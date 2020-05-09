@@ -1,0 +1,11 @@
+.Words {
+    width: 80%;
+    border:1px solid violet;
+    margin: 1%;
+}
+
+.Word {
+    width: 50%;
+    display: inline-block;
+    text-align: center;
+}
