@@ -1,11 +1,47 @@
-import React from 'react';
+import React, {Component} from 'react';
 
 import classes from './MainPage.module.css'
 
-const mainPage = (props) => {
-    return (
-    <div className={classes.MainPage}>{props.children}</div>
-    );
-}
+class MainPage extends Component {
+    state = {
+        sets: {
+            "Lesson 1": [
+                {
+                    word: "hellow",
+                    translate: "привет",
+                    countReapet: 0,
+                    dateReapet: "",
+                },
+                {
+                    word: "World",
+                    translate: "Мир",
+                    countReapet: 0,
+                    dateReapet: "",   
+                }
+            ],
 
-export default mainPage;
+            "Lesson 2": [
+                {
+                    word: "hellow",
+                    translate: "привет",
+                    countReapet: 0,
+                    dateReapet: "",
+                },
+                {
+                    word: "World",
+                    translate: "Мир",
+                    countReapet: 0,
+                    dateReapet: "",   
+                }                
+            ]
+        }
+    }
+
+    render() {
+        return (
+            <div className={classes.MainPage}>{this.props.children}</div>
+            );
+        }
+    }
+
+export default MainPage;

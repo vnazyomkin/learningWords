@@ -5,8 +5,9 @@ import classes from './Word.module.css'
 const word = (props) => {
     return (
         <div className={classes.Words}>
-            <div className={classes.Word}> Слово</div>
-            <div className={classes.Word}>Перевод</div>
+            <div className={classes.Word}>{props.word}</div>
+            <div className={classes.Word}>{props.translate}</div>
+            <button className={classes.delete}>X</button>
         </div>
     );
 }

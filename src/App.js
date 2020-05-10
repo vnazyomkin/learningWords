@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import Sidebar from './components/Navigation/Sidebar/Sidebar'
 import MainPage from './components/MainPage/MainPage';
 import Dictionary from './containers/Dictionary/Dictionary';
+import Sets from './containers/Sets/Sets';
 import 'reset-css'
 import classes from './App.module.css'
 
@@ -21,7 +22,7 @@ class App extends Component {
           <main className={classes.container}>
             <Sidebar/>
             <MainPage>
-              <Dictionary/>
+              <Sets/>
             </MainPage>
           </main>
       </div>

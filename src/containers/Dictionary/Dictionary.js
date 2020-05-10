@@ -8,13 +8,13 @@ class Dictionary extends Component {
         dictionary:
           [
               {
-                words: "hellow",
+                word: "hellow",
                 translate: "привет",
                 countReapet: 0,
                 dateReapet: "",
               },
               {
-                words: "World",
+                word: "World",
                 translate: "Мир",
                 countReapet: 0,
                 dateReapet: "",   
@@ -23,10 +23,17 @@ class Dictionary extends Component {
     }
 
     render() {
+        let words = this.state.dictionary.map( (word, index) => (
+          <Word 
+            word={word.word}
+            translate={word.translate}
+            key={index}>
+          </Word> 
+        ) );
+        
         return (
         <div className={classes.Dictionary}>
-            <Word></Word>
-            <Word></Word>
+            {words}
         </div>
         );
     }

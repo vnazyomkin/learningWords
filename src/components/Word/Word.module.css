@@ -1,11 +1,18 @@
 .Words {
     width: 80%;
     border:1px solid violet;
-    margin: 1%;
+    margin: 1% auto;
+    display: flex;
+    justify-content: space-between
 }
 
 .Word {
-    width: 50%;
+    width: 40%;
     display: inline-block;
     text-align: center;
+    border: 1px solid blanchedalmond;
+}
+
+.delete {
+    display: inline-block;
 }
