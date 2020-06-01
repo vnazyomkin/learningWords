@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
 
-import Sidebar from './components/Navigation/Sidebar/Sidebar'
-import MainPage from './components/MainPage/MainPage';
-import Dictionary from './containers/Dictionary/Dictionary';
-import Sets from './containers/Sets/Sets';
 import 'reset-css'
 import classes from './App.module.css'
+
+
+import Sidebar from './components/Navigation/Sidebar/Sidebar'
+import MainPage from './components/MainPage/MainPage';
+import Training from './containers/Training/Training';
+
 
 
 import Toolbar from './components/Navigation/Toolbar/Toolbar'
@@ -17,12 +19,12 @@ class App extends Component {
 
   render() {
     return (
-      <div className={classes.App}>
+      <div>
           <Toolbar/>
           <main className={classes.container}>
             <Sidebar/>
             <MainPage>
-              <Sets/>
+              <Training/>
             </MainPage>
           </main>
       </div>
