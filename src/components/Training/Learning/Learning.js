@@ -8,7 +8,8 @@ const learning = (props) => {
 
     return (
          <Box>
-               <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+                <p>Слово</p>
+                <TextField id="outlined-basic" label="En" variant="outlined" />
              <Button 
                 variant="contained" 
                 color="primary">Знаю</Button>
