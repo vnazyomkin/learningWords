@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
 
-import classes from './Dictionary.module.css'
-import Word from '../../components/Word/Word'
+import classes from './Dictionary.module.css';
+import Word from '../../components/Word/Word';
+import * as actions from '../../store/actions/index';
+import word from '../../components/Word/Word';
 
 class Dictionary extends Component {
     state = {
@@ -22,15 +25,23 @@ class Dictionary extends Component {
           ],
     }
 
+    componentDidMount() {
+      this.props.onStartLoadDictionary();
+    }
+
     render() {
-        let words = this.state.dictionary.map( (word, index) => (
-          <Word 
-            word={word.word}
-            translate={word.translate}
-            key={index}>
-          </Word> 
-        ) );
-        
+        let words = [];
+        if(!this.props.loading) {
+          for (let id in this.props.dictionary) {
+            words.push(
+            <Word 
+              word={this.props.dictionary[id].en}
+              translate={this.props.dictionary[id].ru}
+              key={id}>
+            </Word>
+            )
+          }
+        }
         return (
         <div className={classes.Dictionary}>
             {words}
@@ -39,4 +50,19 @@ class Dictionary extends Component {
     }
 }
 
-export default Dictionary;
+const mapStateToProps = state => {
+  return {
+    dictionary: state.dictionary.dictionary,
+    loading: state.dictionary.loading,
+    err: state.dictionary.err,
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onStartLoadDictionary: () => dispatch(actions.loadDictionary()),
+  };
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Dictionary);

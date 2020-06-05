@@ -1,0 +1,3 @@
+export {
+    loadDictionary
+} from './dictionary';

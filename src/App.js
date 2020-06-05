@@ -1,16 +1,12 @@
 import React, {Component} from 'react';
+import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom'
 
 import 'reset-css'
 import classes from './App.module.css'
 
-
-import Sidebar from './components/Navigation/Sidebar/Sidebar'
-import MainPage from './components/MainPage/MainPage';
+import Layout from './hoc/Layout/Layout';
 import Training from './containers/Training/Training';
-
-
-
-import Toolbar from './components/Navigation/Toolbar/Toolbar'
+import Dictionary from './containers/Dictionary/Dictionary';
 
 class App extends Component {
   state = {
@@ -18,16 +14,20 @@ class App extends Component {
   }
 
   render() {
+    const routers = (
+      <Switch>
+        <Route path='/training' component={Training}/>
+        <Route path='/dictionary' component={Dictionary} />
+        <Route path='/' component={Training}/>
+        <Redirect to='/'/>
+      </Switch>
+    );
     return (
-      <div>
-          <Toolbar/>
-          <main className={classes.container}>
-            <Sidebar/>
-            <MainPage>
-              <Training/>
-            </MainPage>
-          </main>
-      </div>
+      <BrowserRouter>
+        <Layout>
+          {routers}
+        </Layout>
+      </BrowserRouter>
     );
   }
 }
