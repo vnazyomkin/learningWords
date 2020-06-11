@@ -7,6 +7,7 @@ import classes from './App.module.css'
 import Layout from './hoc/Layout/Layout';
 import Training from './containers/Training/Training';
 import Dictionary from './containers/Dictionary/Dictionary';
+import Learning from './components/Training/Learning/Learning';
 
 class App extends Component {
   state = {
@@ -17,6 +18,7 @@ class App extends Component {
     const routers = (
       <Switch>
         <Route path='/training' component={Training}/>
+        <Route path='/learning' component={Learning} />
         <Route path='/dictionary' component={Dictionary} />
         <Route path='/' component={Training}/>
         <Redirect to='/'/>
