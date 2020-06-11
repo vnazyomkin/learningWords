@@ -15,7 +15,6 @@ const startLoadDictionaty = (state, action) => {
 };
 
 const loadDictionatySuccess = (state, action) => {
-    saveDictionaryLocal(action.dict);
     return {
         ...state,
         loading: false,
@@ -40,17 +39,12 @@ const getDictionaryFromLocalstore = (state, action) => {
     }
 };
 
-const saveDictionaryLocal = (dict) => {
-    console.log(dict);
-    localStorage.dictionary = dict;
-};
 
 const reducer = (state=initialState, action) => {
     switch (action.type) {
         case actionTypes.START_LOAD_DICTIONARY: return startLoadDictionaty(state, action);
         case actionTypes.LOAD_DICTIONARY_SUCCESS: return loadDictionatySuccess(state, action);
         case actionTypes.LOAD_DICTIONARY_FAIL: return loadDictionatyFail(state, action);
-        case actionTypes.GET_DICTIONARY_FROM_LOCALSTORE: return getDictionaryFromLocalstore(state, action);
         default: return state;
     }
 };

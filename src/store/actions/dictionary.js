@@ -4,18 +4,15 @@ import * as actionTypes from './actionTypes';
 
 export const loadDictionary = () => {
     return dispatch => {
-        if (localStorage.getItem('dictionary')) {
-            dispatch(getDictionaryFromLocalstore());
-        } else {
-            dispatch(startLoadDictionaty());
-            axios.get('/dictionary.json')
-                .then(resp => {
-                    dispatch(loadDictionarySuccess(resp.data));
-                })
-                .catch(err => {
-                    dispatch(loadDictionarySuccess(err));
-                });
-        }
+        dispatch(startLoadDictionaty());
+        axios.get('/dictionary.json')
+            .then(resp => {
+                dispatch(loadDictionarySuccess(resp.data));
+            })
+            .catch(err => {
+                dispatch(loadDictionarySuccess(err));
+            });
+
     }
 };
 
@@ -40,11 +37,6 @@ export const loadDictionaryFail = (err) => {
     };
 };
 
-export const getDictionaryFromLocalstore = () => {
-    return {
-        type: actionTypes.GET_DICTIONARY_FROM_LOCALSTORE,
-    };
-};
 
 
 
