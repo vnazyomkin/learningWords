@@ -12,9 +12,7 @@ class Dictionary extends Component {
 
 
     componentDidMount() {
-      if (!this.props.dictionary) {
         this.props.onStartLoadDictionary(); 
-      }
     }
 
     render() {
